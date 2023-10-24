@@ -4,6 +4,7 @@ sed -i '/^exit*/i /vmfs/volumes/datastore1/configpost.sh' /etc/rc.local.d/local.
 
 ### Create configpost.sh file
 touch /vmfs/volumes/datastore1/configpost.sh;
+
 chmod 755 /vmfs/volumes/datastore1/configpost.sh;
 
 # Add contents to configpost.sh file
@@ -16,15 +17,19 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 
 ### Set DNS Server and Search Domain
 echo 'esxcli network ip dns server add --server=172.16.11.4' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+
 echo 'esxcli network ip dns search add --domain=sfo.rainpole.io' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 
 ### Set Hostname and FQDN
 echo 'esxcfg-advcfg -s sfo01-m01-esx01.sfo.rainpole.io /Misc/hostname' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+
 echo 'esxcli system hostname set -H=sfo01-m01-esx01' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+
 echo 'esxcli system hostname set -f=sfo01-m01-esx01.sfo.rainpole.io' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 
 ### Set NTP Server and set ntpd to start at boot
 echo 'echo \"server 172.16.11.253\" \u003e\u003e /etc/ntp.conf' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+
 echo 'chkconfig ntpd on' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 
 ### Rename default 'VM Network' portgroup
@@ -47,6 +52,7 @@ echo 'esxcfg-route 172.16.11.253' \u003e\u003e /vmfs/volumes/datastore1/configpo
 
 ### Regenerate SSL Certificates using the new hostname/FQDN that was set previously
 echo 'cd /etc/vmware/ssl' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+
 echo '/sbin/generate-certificates' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 
 ### Restart the hostd and vpxa services with use above regenerated certificates
