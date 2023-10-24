@@ -7,7 +7,7 @@ This project provides examples and tutorials around the use of Customdata on Equ
 * __Do not__ leave an unprotected ESXi instance on the public internet, there are many known exploits for ESXi Management services that can lead to system compromise. 
  * It is highly recommended to move the ESXi Management interface behind a firewall at your earliest convenience.
 * This project includes an example command to allow for Password Based SSH Authentication. This command in particular should be used with extreme caution for ESXi systems that will have internet facing Management services.
-* This project is experimental and is intended for example purposes only. Please thoroughly read the firstboot_shell_cmd-explanation.md file before using the example file in this project
+* This project is experimental and is intended for example purposes only. Please thoroughly read the [firstboot_shell_cmd-explanation.md](https://github.com/davidlukemt/metal-esxi-customdata/blob/main/firstboot_shell_cmd-explanation.md) file before using the example file in this project
 
 ## What this project will do
 * Provide an example of working Equinix Metal customdata for ESXi first boot customization
