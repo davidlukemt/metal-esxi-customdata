@@ -6,7 +6,7 @@
         "postinstall_shell":"/bin/sh -C",
         "postinstall_shell_cmd":""
        },
-    "rootpwcrypt":"$6$jsWAUfel/ByK1oYU$0wBwflZ0Xu2u0ONL4oV6q29tqi/lJpC00e2UQE0G3YMf.gGLPr3EctSTyNfC3v5lTP.b7D5UoIKHystkpVUcu0",
+    "rootpwcrypt":"hashed_password_here",
     "sshd":{
         "enabled":true,
         "pwauth":true
