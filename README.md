@@ -7,6 +7,7 @@ This project provides examples and tutorials around the use of Customdata on Equ
 * Do not leave an unprotected ESXi instance on the public internet, there are many known exploits for ESXi Management services that can lead to system compromise. 
  * It is highly recommended to move the ESXi Management interface behind a firewall at your earliest convenience.
 * This project includes an example command to allow for Password Based SSH Authentication. This command in particular should be used with extreme caution for ESXi systems that will have internet facing Management services.
+* This project is experimental and is intended for example purposes only. Please thoroughly read the 
 
 ## What this project will do
 * Provide an example of working Equinix Metal customdata for ESXi first boot customization
@@ -17,7 +18,7 @@ This project provides examples and tutorials around the use of Customdata on Equ
 The esxi-customdata-example.json file contains an example of the current Customdata format required to inject firstboot commands into the Metal ESXi provisioning process. We're working on enhancements to make this formatting easier, but this is what works today.
 
 ## Explanation of commands in firstboot_shell_cmd line of example json file
-The esxi-customdata-firstboot_explanation.md file goes over each command from the example and provides an explanation of what each command does.
+The firstboot_shell_cmd-explanation.md file goes over each command from the example and provides an explanation of what each command does.
 
 ## Make editing the firstboot_shell_cmd easier
 Editing the esxi-customdata-example.json file can be made easier by doing a find and replace to replace the ';\r\n' string with a ';newline', updating the commands with relevant entries for IP addresses, portgroup names, DNS/NTP Server addresses, hostname/FQDN, etc, then performing another find and replace to remove the ';newline' sting and putting ';\r\n' back in place.
