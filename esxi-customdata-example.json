@@ -1,0 +1,14 @@
+{
+    "esxishell":{"enabled":false},
+    "kickstart":{
+        "firstboot_shell":"/bin/sh -C",
+        "firstboot_shell_cmd":"sed -i '/^exit*/i /vmfs/volumes/datastore1/configpost.sh' /etc/rc.local.d/local.sh;\r\nsed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config;\r\ntouch /vmfs/volumes/datastore1/configpost.sh;\r\nchmod 755 /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcfg-vswitch -p \"VM Network\" -v 1611 vSwitch0' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcli network ip dns server add --server=172.16.11.4' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcli network ip dns search add --domain=sfo.rainpole.io' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcfg-advcfg -s sfo01-m01-esx01.sfo.rainpole.io /Misc/hostname' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcli system hostname set -H=sfo01-m01-esx01' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcli system hostname set -f=sfo01-m01-esx01.sfo.rainpole.io' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'echo \"server 172.16.11.253\" \u003e\u003e /etc/ntp.conf' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'chkconfig ntpd on' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcfg-vswitch -p \"Management Network\" -v 1611 vSwitch0' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcfg-vmknic -d \"Private Network\"' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcfg-vswitch -D \"Private Network\" vSwitch0' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcli network ip interface ipv4 set -i vmk0 -I 172.16.11.101 -N 255.255.255.0 -g 172.16.11.253 -t static' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'esxcfg-route 172.16.11.253' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'sed -i '/configpost.sh/d' /etc/rc.local.d/local.sh' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho 'cd /etc/vmware/ssl' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho '/sbin/generate-certificates' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\necho '/etc/init.d/hostd restart \u0026\u0026 /etc/init.d/vpxa restart' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;\r\n",
+        "postinstall_shell":"/bin/sh -C",
+        "postinstall_shell_cmd":""
+       },
+    "rootpwcrypt":"$6$jsWAUfel/ByK1oYU$0wBwflZ0Xu2u0ONL4oV6q29tqi/lJpC00e2UQE0G3YMf.gGLPr3EctSTyNfC3v5lTP.b7D5UoIKHystkpVUcu0",
+    "sshd":{
+        "enabled":true,
+        "pwauth":true
+            }
+}
