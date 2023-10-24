@@ -4,7 +4,7 @@ by: David Luke
 This project provides examples and tutorials around the use of Customdata on Equinix Metal to configure an ESXi install at deployment time. This is best suited to deployments that will use Metal VLANs and the VCF/UV2 (Unbonded Vitualization L2) networking mode. However this same framework can be used to deploy ESXi with one of the traditional L3/Hybrid network modes as well. 
 
 ## Please Note
-* Do not leave an unprotected ESXi instance on the public internet, there are many known exploits for ESXi Management services that can lead to system compromise. 
+* ___Do not___ leave an unprotected ESXi instance on the public internet, there are many known exploits for ESXi Management services that can lead to system compromise. 
  * It is highly recommended to move the ESXi Management interface behind a firewall at your earliest convenience.
 * This project includes an example command to allow for Password Based SSH Authentication. This command in particular should be used with extreme caution for ESXi systems that will have internet facing Management services.
 * This project is experimental and is intended for example purposes only. Please thoroughly read the 
