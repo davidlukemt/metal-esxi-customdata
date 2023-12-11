@@ -27,14 +27,65 @@ Editing the esxi-customdata-example.json file can be made easier by doing a find
 
 #### Notepad++
 Here are some examples of how to convert from Single Line to Multi-Line and back using Notepad++
+
+##### Single to Multi
+Find: ``;\\r\\n``
+
+Replace: ``;\r\n``
+
+Before:
+
 ![Alt text](assets/1-npp_to_multi-line_before.png?raw=true "Notepad++ Single to Multi - Before")
 
-#### VSCode
-Here are some examples of how to convert from Single Line to Multi-Line and back using VSCode
+After:
 
+![Alt text](assets/2-npp_to_multi-line_after.png?raw=true "Notepad++ Single to Multi - After")
+
+##### Multi to Single
+Find: ``;\r\n``
+
+Replace: ``;\\r\\n``
+
+Before:
+
+![Alt text](assets/3-npp_to_single-line_before.png?raw=true "Notepad++ Single to Multi - Before")
+
+After:
+
+![Alt text](assets/4-npp_to_single-line_after.png?raw=true "Notepad++ Single to Multi - After")
+
+#### VSCode
+Here are some examples of how to convert from Single Line to Multi-Line and back using VSCode.
+
+##### Single to Multi
+Find: ``;\\r\\n``
+
+Replace: ``;\n``
+
+Before:
+
+![Alt text](assets/5-vscode_to_multi-line_before.png?raw=true "Notepad++ Single to Multi - Before")
+
+After:
+
+![Alt text](assets/6-vscode_to_multi-line_after.png?raw=true "Notepad++ Single to Multi - After")
+
+##### Multi to Single
+Find: ``;\n``
+
+Replace: ``;\\r\\n``
+
+Before:
+
+![Alt text](assets/7-vscode_to_single-line_before.png?raw=true "Notepad++ Single to Multi - Before")
+
+After:
+
+![Alt text](assets/8-vscode_to_single-line_after.png?raw=true "Notepad++ Single to Multi - After")
 
 #### sed CLI
-Here are some examples of how to convert from Single Line to Multi-Line and back using sed from the Linux CLI
+Here are some examples of how to convert from Single Line to Multi-Line and back using sed from the Linux CLI.
+
 ``sed -i 's/;\\r\\n/;\n/g' esxi-customdata-example_sed.json``
 
 ``sed -z 's/;\n/;\\r\\n/g' esxi-customdata-example_sed.json > esxi-customdata-example_sed-singleline.json``
