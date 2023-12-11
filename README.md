@@ -36,6 +36,7 @@ Here are some examples of how to convert from Single Line to Multi-Line and back
 #### sed CLI
 Here are some examples of how to convert from Single Line to Multi-Line and back using sed from the Linux CLI
 ``sed -i 's/;\\r\\n/;\n/g' esxi-customdata-example_sed.json``
+
 ``sed -z 's/;\n/;\\r\\n/g' esxi-customdata-example_sed.json > esxi-customdata-example_sed-singleline.json``
 
 ## Custom root password
