@@ -27,9 +27,11 @@ Editing the esxi-customdata-example.json file can be made easier by doing a find
 
 #### Notepad++
 Here are some examples of how to convert from Single Line to Multi-Line and back using Notepad++
+![Alt text](assets/1-npp_to_multi-line_before.png?raw=true "Notepad++ Single to Multi - Before")
 
 #### VSCode
 Here are some examples of how to convert from Single Line to Multi-Line and back using VSCode
+
 
 #### sed CLI
 Here are some examples of how to convert from Single Line to Multi-Line and back using sed from the Linux CLI
