@@ -23,6 +23,19 @@ The firstboot_shell_cmd-explanation.md file goes over each command from the exam
 ## Make editing the firstboot_shell_cmd easier
 Editing the esxi-customdata-example.json file can be made easier by doing a find and replace to replace the ';\r\n' string with a ';newline', updating the commands with relevant entries for IP addresses, portgroup names, DNS/NTP Server addresses, hostname/FQDN, etc, then performing another find and replace to remove the ';newline' sting and putting ';\r\n' back in place.
 
+### Find and Replace Examples
+
+#### Notepad++
+Here are some examples of how to convert from Single Line to Multi-Line and back using Notepad++
+
+#### VSCode
+Here are some examples of how to convert from Single Line to Multi-Line and back using VSCode
+
+#### sed CLI
+Here are some examples of how to convert from Single Line to Multi-Line and back using sed from the Linux CLI
+``sed -i 's/;\\r\\n/;\n/g' esxi-customdata-example_sed.json``
+``sed -z 's/;\n/;\\r\\n/g' esxi-customdata-example_sed.json > esxi-customdata-example_sed-singleline.json``
+
 ## Custom root password
 
 ### Generating custom root password
