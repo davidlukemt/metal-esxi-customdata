@@ -36,11 +36,11 @@ echo 'esxcli system hostname set -H=sfo01-m01-esx01' \u003e\u003e /vmfs/volumes/
 echo 'esxcli system hostname set -f=sfo01-m01-esx01.sfo.rainpole.io' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 ```
 
-### Set NTP Server and set ntpd to start at boot
+### Set NTP Server IPs or FQDN and set ntpd to start at boot
 ```shell
-echo 'echo \"server 172.16.11.253\" \u003e\u003e /etc/ntp.conf' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+echo 'esxcli system ntp set -s=172.16.11.253 -s=172.16.1.1' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 
-echo 'chkconfig ntpd on' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+echo 'esxcli system ntp set -e=yes' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 ```
 
 ### Rename default 'VM Network' portgroup

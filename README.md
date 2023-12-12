@@ -64,11 +64,11 @@ Replace: ``;\n``
 
 Before:
 
-![Alt text](assets/5-vscode_to_multi-line_before.png?raw=true "Notepad++ Single to Multi - Before")
+![Alt text](assets/5-vscode_to_multi-line_before.png?raw=true "VSCode Single to Multi - Before")
 
 After:
 
-![Alt text](assets/6-vscode_to_multi-line_after.png?raw=true "Notepad++ Single to Multi - After")
+![Alt text](assets/6-vscode_to_multi-line_after.png?raw=true "VSCode Single to Multi - After")
 
 ##### Multi to Single
 Find: ``;\n``
@@ -77,11 +77,11 @@ Replace: ``;\\r\\n``
 
 Before:
 
-![Alt text](assets/7-vscode_to_single-line_before.png?raw=true "Notepad++ Single to Multi - Before")
+![Alt text](assets/7-vscode_to_single-line_before.png?raw=true "VSCode Single to Multi - Before")
 
 After:
 
-![Alt text](assets/8-vscode_to_single-line_after.png?raw=true "Notepad++ Single to Multi - After")
+![Alt text](assets/8-vscode_to_single-line_after.png?raw=true "VSCode Single to Multi - After")
 
 #### sed CLI
 Here are some examples of how to convert from Single Line to Multi-Line and back using sed from the Linux CLI.
@@ -98,4 +98,43 @@ To generate a password hash of your desired ESXi root password run the 'mkpasswd
 ```shell
 mkpasswd --method=SHA-512
 ```
-You'll be prompted to enter the desired password sting you wish to hash, then press enter. The output will be the string you need to use in the rootpwcrypt entry near the end of the esxi-customdata-example.json file
+You'll be prompted to enter the desired password sting you wish to hash, then press enter. 
+
+![Alt text](assets/9-mkpasswd_example.png?raw=true "mkpasswd Example")
+
+The output will be the string you need to use in the rootpwcrypt entry near the end of the esxi-customdata-example.json file
+
+![Alt text](assets/10-mkpasswd_in_json.png?raw=true "mkpasswd Example in rootpwcrypt")
+
+## Using final JSON in Metal Console
+
+When provisioning an ESXi instance on the Equinix Metal console, select the Hardware Plan and Operating System like normal.
+After setting the Hostname in the Select Number of Servers section, expand the Optional Settings and select the Custom Data tab.
+Paste your modified JSON into the text box where it says "Paste your JSON content here", and hit the "Deploy Now" button.
+
+![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+
+After provisioning is complete, you should see that the settings you specified in your "firstboot_shell_cmd" block have been set.
+
+Management IP seen on DCUI/SOS Console:
+
+![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+
+After assigning the appropriate Metal VLANs to the instance, you should be able to access the Host Web UI using the root password you specified to review the rest of the scripted config changes.
+
+FQDN seen from ESXi Host Web UI:
+
+![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+
+NTP settings seen from ESXi Host Web UI:
+
+![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+
+DNS Server settings seen from ESXi Host Web UI:
+
+![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+
+VMK and Port Group settings seen from ESXi Host Web UI:
+
+![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+
