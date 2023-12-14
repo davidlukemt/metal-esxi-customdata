@@ -112,29 +112,32 @@ When provisioning an ESXi instance on the Equinix Metal console, select the Hard
 After setting the Hostname in the Select Number of Servers section, expand the Optional Settings and select the Custom Data tab.
 Paste your modified JSON into the text box where it says "Paste your JSON content here", and hit the "Deploy Now" button.
 
-![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+![Alt text](assets/11-metal_console_Deploy_Now-custom_data.png?raw=true "Metal Console - Deploy Now")
+
+![Alt text](assets/12-metal_console_Manage_Servers_Deploying.png?raw=true "Metal Console - Deploying")
 
 After provisioning is complete, you should see that the settings you specified in your "firstboot_shell_cmd" block have been set.
 
 Management IP seen on DCUI/SOS Console:
 
-![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+![Alt text](assets/13-Metal_SOS_DCUI.png?raw=true "Metal SOS - DCUI")
 
 After assigning the appropriate Metal VLANs to the instance, you should be able to access the Host Web UI using the root password you specified to review the rest of the scripted config changes.
 
 FQDN seen from ESXi Host Web UI:
 
-![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+![Alt text](assets/14-ESXi_WebUI-FQDN.png?raw=true "ESXi WebUI - FQDN")
 
 NTP settings seen from ESXi Host Web UI:
 
-![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+![Alt text](assets/15-ESXi_WebUI-NTP.png?raw=true "ESXi WebUI - NTP")
 
 DNS Server settings seen from ESXi Host Web UI:
 
-![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+![Alt text](assets/16-ESXi_WebUI-DNS.png?raw=true "ESXi WebUI - DNS")
 
 VMK and Port Group settings seen from ESXi Host Web UI:
 
-![Alt text](assets/11-Metal_Console_Deploy_Now.png?raw=true "Metal Console - Deploy Now")
+![Alt text](assets/17-ESXi_WebUI-VMK.png?raw=true "ESXi WebUI - VMK")
 
+![Alt text](assets/18-ESXi_WebUI-Port_groups.png?raw=true "ESXi WebUI - Port Groups")
