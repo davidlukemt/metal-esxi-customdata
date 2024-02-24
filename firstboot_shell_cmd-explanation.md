@@ -20,6 +20,13 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 
 ## The following commands echo the desired esxi relevant cli commands into the configpost.sh file
 
+### One must never forget one's She-Bang. 
+### While ESXi 6 and 7 didn't care about a proper She-Bang header, ESXi 8 most definitely does.
+```shell
+echo '#!/bin/sh' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
+```
+
+
 ### Set DNS Server and Search Domain
 ```shell
 echo 'esxcli network ip dns server add --server=172.16.11.4' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
