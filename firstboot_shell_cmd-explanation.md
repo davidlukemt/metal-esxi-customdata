@@ -19,8 +19,9 @@ chmod 755 /vmfs/volumes/datastore1/configpost.sh;
 
 # Add contents to configpost.sh file
 
-## While ESXi 6 and 7 didn't care about a proper She-Bang header, ESXi 8 most definitely does.
-### More info about the changes to the **execInstalledOnly** option driving this can be found [here](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-security/GUID-DF6A7974-62F9-47DB-A990-963F3B3AEA77.html)
+## While ESXi 6 and 7 didn't care about a proper ShaBang header, ESXi 8 most definitely does.
+### Documentation about the changes to the **execInstalledOnly** option driving this can be found [here](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-security/GUID-DF6A7974-62F9-47DB-A990-963F3B3AEA77.html)
+#### [TLDR from William Lam](https://communities.vmware.com/t5/ESXi-Discussions/esxi-8-shell-script-how-to-run/m-p/2954230/highlight/true#M286671) is that scripts which don't start with the shabang are considered binaries and the execInstalledOnly option blocks binaries that didn't originate from a valid VIB
 ```shell
 echo '#!/bin/sh' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 ```
