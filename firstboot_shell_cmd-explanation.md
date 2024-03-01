@@ -3,6 +3,13 @@
 ```shell
 sed -i '/^exit*/i /vmfs/volumes/datastore1/configpost.sh' /etc/rc.local.d/local.sh;
 ```
+
+## WARNING!! DO NOT USE THIS FOR ESXI THAT WILL HAVE A PUBLIC IP ADDRESS
+### Allow Password based Authentication to SSH on ESXi, this is a requirement for vCloud Foundation deployments
+```shell
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+```
+
 ### Create configpost.sh file
 ```shell
 touch /vmfs/volumes/datastore1/configpost.sh;
@@ -12,20 +19,13 @@ chmod 755 /vmfs/volumes/datastore1/configpost.sh;
 
 # Add contents to configpost.sh file
 
-## WARNING!! DO NOT USE THIS FOR ESXI THAT WILL HAVE A PUBLIC IP ADDRESS
-### Allow Password based Authentication to SSH on ESXi 
-```shell
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
-```
-
-## The following commands echo the desired esxi relevant cli commands into the configpost.sh file
-
-
-### While ESXi 6 and 7 didn't care about a proper She-Bang header, ESXi 8 most definitely does.
+## While ESXi 6 and 7 didn't care about a proper She-Bang header, ESXi 8 most definitely does.
+### More info about the changes to the **execInstalledOnly** option driving this can be found [here](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-security/GUID-DF6A7974-62F9-47DB-A990-963F3B3AEA77.html)
 ```shell
 echo '#!/bin/sh' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 ```
 
+## The following commands echo the desired esxi relevant cli commands into the configpost.sh file
 
 ### Set DNS Server and Search Domain
 ```shell
