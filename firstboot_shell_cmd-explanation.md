@@ -51,7 +51,7 @@ echo 'esxcli system ntp set -s=172.16.11.253 -s=172.16.1.1' \u003e\u003e /vmfs/v
 echo 'esxcli system ntp set -e=yes' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 ```
 
-### Rename default 'VM Network' portgroup
+### Set default 'VM Network' portgroup VLAN
 ```shell
 echo 'esxcfg-vswitch -p \"VM Network\" -v 1611 vSwitch0' \u003e\u003e /vmfs/volumes/datastore1/configpost.sh;
 ```
